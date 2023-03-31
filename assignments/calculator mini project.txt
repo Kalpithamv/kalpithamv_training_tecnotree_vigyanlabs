@@ -1,0 +1,285 @@
+import React, { useState } from 'react';
+
+
+function App() {
+  const [result, setResult] = useState('');
+
+  const handleClick = (e) => {
+    setResult(result.concat(e.target.name));
+  }
+
+  const clear = () => {
+    setResult('');
+  }
+
+  const backspace = () => {
+    setResult(result.slice(0, -1));
+  }
+
+  const calculate = () => {
+    try {
+      setResult(eval(result).toString());
+    } catch (error) {
+      setResult('Error');
+    }
+  }
+
+  return ( 
+    <div className="container">
+        <h1> CALCULATOR </h1>
+      <form>
+        <input type="text" value={result} />
+      </form>
+
+      <div className="keypad">
+        <button className="highlight" onClick={calculate} id="result">=</button>
+        <button className="highlight" onClick={backspace} id="backspace">C</button>
+        <button className="highlight" onClick={clear} id="clear">Clear</button>
+        <button className="highlight" name="/" onClick={handleClick}>&divide;</button>
+        <button name="7" onClick={handleClick}>7</button>
+        <button name="8" onClick={handleClick}>8</button>
+        <button name="9" onClick={handleClick}>9</button>
+        <button className="highlight" name="*" onClick={handleClick}>&times;</button>
+        <button name="4" onClick={handleClick}>4</button>
+        <button name="5" onClick={handleClick}>5</button>
+        <button name="6" onClick={handleClick}>6</button>
+        <button className="highlight" name="-" onClick={handleClick}>&ndash;</button>
+        <button name="1" onClick={handleClick}>1</button>
+        <button name="2" onClick={handleClick}>2</button>
+        <button name="3" onClick={handleClick}>3</button>
+        <button className="highlight" name="+" onClick={handleClick}>+</button>
+        <button name="0" onClick={handleClick}>0</button>
+        <button name="." onClick={handleClick}>.</button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+CSS;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-image: url("C:\Users\venkaka\Downloads\gif11.gif");
+  
+  background-size:auto;
+}
+
+  /* Global styles */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Styles for App component */
+
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-top: 0;
+  
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+}
+
+header {
+	background-color: whitesmoke;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	height: 70px;
+	padding: 0 20px;
+}
+h1{
+  background-color: whitesmoke;}
+
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	height: 50px;
+	margin-right: 10px;
+}
+
+.logo h1 {
+	font-size: 28px;
+}
+
+main {
+	padding: 20px;
+}
+
+#gallery {
+	margin-bottom: 50px;
+}
+
+#gallery h2 {
+	margin-bottom: 20px;
+}
+
+#view-work-btn {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	margin-bottom: 20px;
+}
+
+.gallery-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.gallery-container img {
+	flex: 1;
+	height: 200px;
+	object-fit: cover;
+	margin: 10px;
+}
+
+footer {
+	background-color: #eee;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-info {
+	text-align: center;
+}
+
+.contact-info p {
+	margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+	.logo {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	
+	.logo h1 {
+		margin-top: 10px;
+	}
+	
+	.gallery-container img {
+		flex: 1 1 100%;
+		height: auto;
+	}
+}
+
+  
+    
+      
+
+  /*-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;*/
+
+h1{color:black;}
+p{color: black;}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*calculator*/
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 70px;
+  font-size: 3rem;
+  text-align: right;
+  border: none;
+  outline: none;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  width: 100%;
+  height: 70px;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ccc;
+}
+
+.highlight {
+  background-color: #f90;
+  
+}
+
