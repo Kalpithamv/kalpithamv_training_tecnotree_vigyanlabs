@@ -1,0 +1,5 @@
+x = input("Enter a string: ")
+print("Length of the string is:", len(x))
+print("First character of the string is:", x[0])
+print("Last character of the string is:", x[-1])
+print("String in reverse order is:", x[::-1])

@@ -1,0 +1,28 @@
+// users
+
+      "_id": 23589,
+      "username": KALPITHA,
+      "email": kalpitha@1106,
+      "password": kal*****,
+      "created_at": Date,
+      "updated_at": Date
+    
+// Blog posts
+ 
+      "_id": 45667,
+      "title": A little about...,
+      "body": he is a globally experienced...,
+      "authorid": 6723,
+        
+     
+ // post categories
+       
+          "post_id": 9845,
+	    "categoryt_id": 3427,
+          "username": String
+
+// categories
+          
+    	   
+		"id": 4523,
+		"name": string

@@ -1,0 +1,42 @@
+select * from books;
+
+select * from authors;
+
+select * from users;
+
+select * from borrowed_books;
+
+SELECT books.title, authors.first_name, authors.last_name, borrowed_books.borrowed_date, borrowed_books.due_date, borrowed_books.returned_date
+FROM borrowed_books
+JOIN books ON borrowed_books.book_id = books.book_id
+JOIN authors ON books.author_id = authors.author_id
+WHERE borrowed_books.user_id = 200;
+
+
+SELECT * FROM books WHERE author_id = 10;
+
+SELECT quantity FROM books WHERE book_id = 2;
+
+INSERT INTO books (book_id, title, author_id, publisher, publish_date, quantity) VALUES
+(6, 'AI', 40, 'ABC Publishers', '2023-01-01', 7);
+
+UPDATE books SET quantity = 12 WHERE book_id = 1;
+
+DELETE FROM borrowed_books WHERE book_id = 4;
+DELETE FROM books WHERE book_id = 4;
+
+INSERT INTO users (user_id, first_name, last_name, email, password) VALUES
+(700, 'Samyuktha', 'M', 'samyuktha@example.com', 'samyuktha13');
+
+UPDATE users SET password = 'newpassword' WHERE user_id = 200;
+
+
+DELETE FROM borrowed_books WHERE book_id = 300;
+DELETE FROM users WHERE user_id = 300;
+
+INSERT INTO borrowed_books (id, book_id, user_id, borrowed_date, due_date, returned_date) VALUES
+(6000, 1, 100, '2023-03-28', '2023-04-28', NULL);
+
+UPDATE borrowed_books
+SET returned_date = CURRENT_DATE()
+WHERE book_id = 1 AND user_id = 200 AND returned_date IS NULL;

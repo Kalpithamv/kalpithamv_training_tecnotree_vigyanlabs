@@ -1,0 +1,17 @@
+1. Write a MySQL command to create a new database called Hospital management.
+  
+  create database hospital_management; use hospital_management; show databases;
+
+2. Write a MySQL command to create a new table called employees with three columns: id (integer, primary key), name (varchar), and age (integer).
+
+    create table employee(id int,name varchar(300),age int,constraint pk_employee   primary key(id));
+
+3.Write a MySQL command to insert a new record into the employees table with the following values: id=1, name='John Doe', age=30.
+
+	insert into employee values(1,"John Doe",30);
+	 insert into employee values(2,"Sushma",21);
+	 insert into employee values(3,"samyuktha",22);
+
+4. Write a MySQL command to retrieve all the data from the employees table.
+
+	select *from employee;
