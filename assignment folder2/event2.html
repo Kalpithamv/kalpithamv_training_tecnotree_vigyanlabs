@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <title>event2</title>
+  </head>
+  <body>
+    <p id="output">Click a button </p>
+    <button id="myButton1">save</button>
+    <button id="myButton2">submit</button>
+        
+    <script>
+      const button1 = document.getElementById("myButton1");
+      const button2 = document.getElementById("myButton2");
+      const output = document.getElementById("output");
+      
+      button1.addEventListener("click", function() {
+        output.innerHTML = "Button 1 was clicked!";
+	  alert("saved!");
+      });
+      
+      button2.addEventListener("click", function() {
+        output.innerHTML = "Button 2 was clicked!";
+        alert("submitted!");
+      });
+      
+          </script>
+  </body>
+</html>
