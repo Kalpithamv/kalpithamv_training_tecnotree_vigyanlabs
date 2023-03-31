@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Task Manager</title>
+    <style>
+      /* CSS styles go here */
+    </style>
+  </head>
+  <body>
+    <h1>Task Manager</h1>
+    <form id="taskForm">
+      <label for="taskInput">Add Task:</label>
+      <input type="text" id="taskInput" required>
+      <button type="submit">Add</button>
+    </form>
+    <ul id="taskList">
+      <!-- Tasks will be dynamically added here -->
+    </ul>
+    <script>
+      // JavaScript code goes here
+      const taskForm = document.getElementById('taskForm');
+      const taskInput = document.getElementById('taskInput');
+      const taskList = document.getElementById('taskList');
+
+      // Check for saved tasks in local storage
+      let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+      // Display saved tasks
+      tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.textContent = task;
+        taskList.appendChild(li);
+      });
+
+      // Handle form submission
+      taskForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const task = taskInput.value.trim();
+        if (task) {
+          tasks.push(task);
+          localStorage.setItem('tasks', JSON.stringify(tasks));
+          const li = document.createElement('li');
+          li.textContent = task;
+          taskList.appendChild(li);
+          taskInput.value = '';
+        }
+      });
+
+      // Handle task completion
+      taskList.addEventListener('click', (event) => {
+        if (event.target.tagName === 'LI') {
+          event.target.classList.toggle('completed');
+        }
+      });
+    </script>
+  </body>
+</html>

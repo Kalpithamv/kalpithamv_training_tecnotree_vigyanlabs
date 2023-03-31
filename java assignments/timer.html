@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Countdown Timer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      
+      #countdown-timer {
+        margin: 50px auto;
+        width: 400px;
+        text-align: center;
+      }
+      
+      #countdown-timer h1 {
+        font-size: 50px;
+        margin: 0;
+      }
+      
+      #countdown-timer p {
+        font-size: 20px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown-timer">
+      <h1>Countdown Timer</h1>
+      <p id="countdown"></p>
+    </div>
+    
+    <script>
+      // Set the date and time to count down to (in UTC)
+      var countDownDate = new Date("Mar 04, 2023 23:59:59").getTime();
+
+      // Update the countdown every second
+      var x = setInterval(function() {
+
+        // Get the current date and time (in UTC)
+        var now = new Date().getTime();
+        
+        // Calculate the distance between now and the countdown date
+        var distance = countDownDate - now;
+        
+        // Calculate the days, hours, minutes, and seconds remaining
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Display the countdown in the #countdown element
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+        
+        // If the countdown is over, display a message
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

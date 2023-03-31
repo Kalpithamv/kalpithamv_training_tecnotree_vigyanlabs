@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		.calculator {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 10px;
+			padding: 10px;
+			background-color: #f4f4f4;
+			border-radius: 4px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+			width: 300px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.calculator-display {
+			grid-column: 1 / span 4;
+			background-color: white;
+			padding: 10px;
+			border-radius: 4px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+			text-align: right;
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+
+		.calculator-button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.calculator-button:hover {
+			background-color: #3e8e41;
+		}
+
+		.calculator-button.ac-button {
+			background-color: #f44336;
+		}
+
+		.calculator-button.ac-button:hover {
+			background-color: #c62828;
+		}
+	</style>
+</head>
+<body>
+	<div class="calculator">
+		<div class="calculator-display" id="calculator-display">0</div>
+		<button class="calculator-button" id="button-ac">AC</button>
+		<button class="calculator-button" id="button-divide">/</button>
+		<button class="calculator-button" id="button-multiply">*</button>
+		<button class="calculator-button" id="button-7">7</button>
+		<button class="calculator-button" id="button-7">8</button>
+		<button class="calculator-button" id="button-9">9</button>
+		<button class="calculator-button" id="button-subtract">-</button>
+		<button class="calculator-button" id="button-4">4</button>
+		<button class="calculator-button" id="button-5">5</button>
+		<button class="calculator-button" id="button-6">6</button>
+		<button class="calculator-button" id="button-add">+</button>
+		<button class="calculator-button" id="button-1">1</button>
+		<button class="calculator-button" id="button-1">2</button>
+		<button class="calculator-button" id="button-3">3</button>
+		<button class="calculator-button" id="button-equals">=</button>
+		<button class="calculator-button" id="button-0">0</button>
+		<button class="calculator-button" id="button-dot">.</button>
+	</div>
+
+	<script>
+		const display = document.querySelector('#calculator-display');
+		let operand1 = null;
+		let operator = null;
+		let shouldClearDisplay = false;
+
+		function clearDisplay() {
+			display.textContent = '0';
+		}
+
+		function appendDigit(digit) {
+			if (shouldClearDisplay) {
+				clearDisplay();
+				shouldClearDisplay = false;
+			}
+
+			if

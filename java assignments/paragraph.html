@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Paragraph Example</title>
+  </head>
+  <body>
+    <p id="output">Technology is the application of knowledge for achieving practical goals in a reproducible way.<br> The word technology can also mean the products resulting from such efforts,<br> including both tangible tools such as utensils or machines,<br> and intangible ones such as software</p>
+    <button id="myButton">Click me</button>
+    
+    <script>
+      const button = document.getElementById("myButton");
+      const output = document.getElementById("output");
+      
+      button.addEventListener("click", function() {
+        output.innerHTML = "The button was clicked!";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>koding and learning</title>
+</head>
+<body>
+<h4>program to rotate the string ‘Koding && Learning' in the right direction by periodically removing one letter from the end of the string and attaching it to the front</h4>
+<script>
+let str = 'Koding && Learning';
+let length = str.length;
+for (let i = 0; i < length; i++) {
+  let lastChar = str[length - 1];
+  for (let j = length - 2; j >= 0; j--) 
+  {
+    str[j + 1] = str[j];
+  }   str[0] = lastChar;
+}
+console.log(str);
+</script>
+</body>
+</html>

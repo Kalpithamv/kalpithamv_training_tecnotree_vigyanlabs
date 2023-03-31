@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recipe Search</title>
+	<style>
+		form {
+			display: flex;
+			align-items: center;
+		}
+
+		input[type="text"] {
+			flex-grow: 1;
+			margin-right: 10px;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.recipe-card {
+			display: inline-block;
+			margin: 10px;
+			padding: 10px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			max-width: 300px;
+		}
+
+		.recipe-card h2 {
+			margin-top: 0;
+		}
+
+		.recipe-card img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 10px;
+		}
+
+		.save-button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 5px 10px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Recipe Search</h1>
+	<form>
+		<label for="search-input">Search:</label>
+		<input type="text" id="search-input" name="search-input">
+		<input type="submit" value="Search">
+	</form>
+	<div id="recipes-container"></div>
+	<script>
+		const form = document.querySelector('form');
+		const searchInput = document.querySelector('#search-input');
+		const recipesContainer = document.querySelector('#recipes-container');
+
+		form.addEventListener('submit', (event) => {
+			event.preventDefault(); // Prevent page reload
+			const searchQuery = searchInput.value;
+			const apiUrl = `https://api.spoonacular.com/recipes/search?apiKey=<YOUR_API_KEY>&query=${searchQuery}`;
+
+			fetch(apiUrl)
+				.then((response) => response.json())
+				.then((data) => {
+					const recipes = data.results;
+					recipesContainer.innerHTML = '';
+
+					recipes.forEach((recipe) => {
+						const recipeHtml = `
+							<div class="recipe-card">
+								<h2>${recipe.title}</h2>
+								<img src="${recipe.image}" alt="${recipe.title}">
+								<button class="save-button" data-id="${recipe.id}">Save</button>
+							</div>
+						`;
+						recipesContainer.insertAdjacentHTML('beforeend', recipeHtml);
+					});
+
+					// Add event listener to all save buttons
+					const saveButtons = document.querySelectorAll('.save-button');
+					saveButtons.forEach((button) => {
+						button.addEventListener('click', (event) => {
+							const recipeId = event.target.dataset.id;
+							saveRecipe(recipeId);
+						});
+					});
+				})
+				.catch((error) => console.error(error));
+		});
+	</script>
+</body>
+</html>

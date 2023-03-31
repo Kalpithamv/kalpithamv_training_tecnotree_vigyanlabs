@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Form Submission</title>
+</head>
+<body>
+	<h1>Example Form Submission</h1>
+	<form id="example-form">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		document.getElementById("example-form").addEventListener("submit", function(event) {
+			event.preventDefault(); // prevent default form submission behavior
+
+			// get values of name and email input fields
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+
+			// display alert with values of name and email input fields
+			alert("Name: " + name + "\nEmail: " + email);
+		});
+	</script>
+</body>
+</html>

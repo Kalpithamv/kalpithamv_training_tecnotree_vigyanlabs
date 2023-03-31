@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Selection Example</title>
+	<style>
+		.selected {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul id="myList">
+		<li>sushma</li>
+		<li>prajith</li>
+		<li>samyuktha</li>
+		<li>adithya</li>
+		<li>pavan</li>
+		<li>sanjay</li>
+	</ul>
+
+	<script>
+		const listItems = document.querySelectorAll('#myList li');
+		listItems.forEach(item => {
+			item.addEventListener('click', () => {
+				listItems.forEach(item => item.classList.remove('selected'));
+				item.classList.add('selected');
+			});
+		});
+	</script>
+</body>
+</html>

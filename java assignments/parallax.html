@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parallax Website</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		.section {
+			height: 100vh;
+			position: relative;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		.section1 {
+			background-image: url('https://picsum.photos/1920/1080?grayscale');
+		}
+
+		.section2 {
+			background-image: url('https://picsum.photos/1920/1080?blur');
+		}
+
+		.section3 {
+			background-image: url('https://picsum.photos/1920/1080?sepia');
+		}
+
+		.section-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: #fff;
+		}
+
+		.section1-content {
+			z-index: 1;
+		}
+
+		.section2-content {
+			z-index: 2;
+		}
+
+		.section3-content {
+			z-index: 3;
+		}
+
+		.section-content h2 {
+			margin-top: 0;
+			margin-bottom: 20px;
+			font-size: 3em;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+
+		.section-content p {
+			margin: 0;
+			font-size: 1.2em;
+			line-height: 1.5;
+		}
+	</style>
+</head>
+<body>
+	<div class="section section1">
+		<div class="section-content section1-content">
+			<h2>Section 1</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, quam sed iaculis bibendum, dui mauris luctus ante, ac bibendum tortor elit sed magna.</p>
+		</div>
+	</div>
+	<div class="section section2">
+		<div class="section-content section2-content">
+			<h2>Section 2</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, quam sed iaculis bibendum, dui mauris luctus ante, ac bibendum tortor elit sed magna.</p>
+		</div>
+	</div>
+	<div class="section section3">
+		<div class="section-content section3-content">
+			<h2>Section 3</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, quam sed iaculis bibendum, dui mauris luctus ante, ac bibendum tortor elit sed magna.</p>
+		</div>
+	</div>
+</body>
+</html>

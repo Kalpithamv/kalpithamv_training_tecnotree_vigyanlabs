@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My JavaScript Program</title>
+  </head>
+  <body>
+    <h4>Hello TechnoTree World!</h4>
+    <script> 
+const now = new Date();
+const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+const dayOfWeek = weekdays[now.getDay()];
+
+// Get the current hour (0-23) and convert it to 12-hour format
+let hour = now.getHours();
+const ampm = hour >= 12 ? "PM" : "AM";
+hour = hour % 12 || 12;
+
+// Get the current minutes and seconds
+const minutes = now.getMinutes();
+const seconds = now.getSeconds();
+
+// Construct the output string
+const output = `Today is: ${dayOfWeek}\nCurrent time is: ${hour} ${ampm} : ${minutes} : ${seconds}`;
+
+// Display the output in the console
+console.log(output);
+</script>
+
+    </script>
+  </body>
+</html>

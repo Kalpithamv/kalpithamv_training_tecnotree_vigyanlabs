@@ -1,0 +1,25 @@
+import React from 'react';
+import Slideshow from './compo/Slideshow';
+
+function App() {
+  const images =[
+    'https://www.pixelstalk.net/wp-content/uploads/2016/08/Best-3D-Images-Free-Download.jpg',
+    'https://i.pinimg.com/736x/24/6b/99/246b9948f52327fa5e29a0d916b762b2--image-d-d-pictures.jpg',
+    'https://o.aolcdn.com/hss/storage/midas/768c0f7ce71af99abc34e72cd44ad442/206438582/3d-ed.jpg',
+    'https://i.pinimg.com/originals/f6/eb/3e/f6eb3e8689b77784c50e75e962b95770.jpg',
+     'https://www.ripleys.com/wp-content/uploads/2014/04/Ramon-Bruin-10.jpg',
+     'https://cdn.wallpapersafari.com/83/53/oZImTs.jpg',
+  ];
+  const slideInterval = 3000; // 3 seconds
+
+  return (
+    <center>
+    <div>
+      <h1>My Slideshow</h1>
+      <Slideshow images={images} slideInterval={slideInterval} />
+    </div>
+    </center>
+  );
+}
+
+export default App;

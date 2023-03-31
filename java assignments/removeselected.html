@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My HTML Page</title>
+    <style>
+      .selected {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>List</h1>
+    <ul id="myList">
+      <li>apple</li>
+      <li>mango</li>
+      <li>orange</li>
+    </ul>
+
+    <button id="clearSelectionButton">Clear Selection</button>
+
+    <script>
+      
+      const myList = document.getElementById('myList');
+      const clearSelectionButton = document.getElementById('clearSelectionButton');
+
+     
+      myList.addEventListener('click', function(event) {
+        
+        const listItems = myList.getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+          listItems[i].classList.remove('selected');
+        }
+
+        
+        const listItem = event.target;
+        listItem.classList.add('selected');
+      });
+
+      
+      clearSelectionButton.addEventListener('click', function() {
+        
+        const listItems = myList.getElementsByTagName('li');
+        for (let i = 0; i < listItems.length; i++) {
+          listItems[i].classList.remove('selected');
+        }
+      });
+    </script>
+  </body>
+</html>
