@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find Missing Number</title>
+	<script type="text/javascript">
+		function findMissingNumber(arr) {
+			var n = arr.length + 1;
+			var sum = (n * (n + 1)) / 2;
+			var arrSum = 0;
+			for (var i = 0; i < arr.length; i++) {
+				arrSum += arr[i];
+			}
+			return sum - arrSum;
+		}
+
+		function getMissingNumber() {
+			var numbers = document.getElementById("numbers").value;
+			var arr = numbers.split(",").map(Number);
+			var missingNumber = findMissingNumber(arr);
+			document.getElementById("result").innerHTML = "The missing number is " + missingNumber;
+		}
+	</script>
+</head>
+<body>
+	<h1>Find Missing Number</h1>
+	<p>Enter a list of numbers:</p>
+	<input type="text" id="numbers">
+	<button onclick="getMissingNumber()">Find Missing Number</button>
+	<p id="result"></p>
+</body>
+</html>

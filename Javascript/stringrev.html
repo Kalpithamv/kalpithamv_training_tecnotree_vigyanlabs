@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reverse String Order</title>
+    <script>
+      function reverseStringOrder(string) {
+        const words = string.split(' ');
+        const reversedWords = words.reverse();
+        const reversedString = reversedWords.join(' ');
+
+        return reversedString;
+      }
+
+      function reverseString() {
+        
+        const string = document.getElementById('inputString').value;
+       
+        const reversedString = reverseStringOrder(string);
+
+        console.log(`Original string: ${string}`);
+        console.log(`Reversed string: ${reversedString}`);
+      }
+    </script>
+  </head>
+  <body>
+      <h1>Enter a String:</h1>
+    <input type="text" id="inputString">
+
+    <h1>Reverse String Order</h1>
+    <button type="button" onclick="reverseString()">Reverse String</button>
+  </body>
+</html>

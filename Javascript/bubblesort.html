@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bubble Sort Algorithm</title>
+	<script type="text/javascript">
+		function bubbleSort(arr) {
+			var len = arr.length;
+			for (var i = 0; i < len; i++) {
+				for (var j = 0; j < len - 1; j++) {
+					if (arr[j] > arr[j + 1]) {
+						var temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
+					}
+				}
+			}
+			return arr;
+		}
+
+		function sortNumbers() {
+			var numbers = document.getElementById("numbers").value;
+			var arr = numbers.split(",").map(Number);
+			var sortedArr = bubbleSort(arr);
+			document.getElementById("sortedNumbers").innerHTML = sortedArr.toString();
+		}
+	</script>
+</head>
+<body>
+	<h1>Bubble Sort</h1>
+	<p>Enter a list of numbers:</p>
+	<input type="text" id="numbers">
+	<button onclick="sortNumbers()">Sort</button>
+	<p>Sorted Numbers: <span id="sortedNumbers"></span></p>
+</body>
+</html>

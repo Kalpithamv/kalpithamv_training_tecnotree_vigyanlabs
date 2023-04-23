@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Binary Search Algorithm</title>
+    <script>
+      function binarySearch(array, target) {
+        let low = 0;
+        let high = array.length - 1;
+
+        while (low <= high) {
+          const mid = Math.floor((low + high) / 2);
+
+          if (array[mid] === target) {
+            return mid;
+          } else if (array[mid] < target) {
+            low = mid + 1;
+          } else {
+            high = mid - 1;
+          }
+        }
+
+        return -1;
+      }
+
+      function searchArray() {
+         const array= document.getElementById('array1').value.split(',').map(value => value.trim());
+        const target = 7;
+
+        const index = binarySearch(array, target);
+
+        if (index !== -1) {
+          console.log(`Found ${target} at index ${index}.`);
+        } else {
+          console.log(`${target} was not found in the array.`);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Binary Search Algorithm</h1>
+    <label for="array">Enter the first array:</label>
+      <input type="text" id="array1" name="array" required><br></br>
+    <button type="button" onclick="searchArray()">Search Array</button>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Array SOrting</title>
+  </head>
+  <body>
+    <h1>Sort Objects Example</h1>
+   
+    <button onclick="sortTable()">sort in Alphabetical order</button>
+
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>Serial no</th>
+          <td>Technology<td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Java</td>
+         
+        </tr>
+        <tr>
+           <th>1</th>
+          <td>ReactJs</td>
+          
+        </tr>
+        <tr>
+           <th>1</th>
+          <td>NodeJS</td>
+         
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function sortTable() {
+        // Get the table and its rows
+        const table = document.getElementById("myTable");
+        const rows = Array.from(table.rows);
+
+        // Sort the rows by age using the sort method and a compare function
+        rows.sort((row1, row2) => {
+          const age1 = parseInt(row1.cells[1].textContent);
+          const age2 = parseInt(row2.cells[1].textContent);
+          return age1 - age2;
+        });
+
+        // Remove the existing rows from the table
+        const tbody = table.getElementsByTagName("tbody")[0];
+        while (tbody.firstChild) {
+          tbody.removeChild(tbody.firstChild);
+        }
+
+        // Add the sorted rows back to the table
+        rows.forEach(row => {
+          tbody.appendChild(row);
+        });
+      }
+    </script>
+  </body>
+</html>

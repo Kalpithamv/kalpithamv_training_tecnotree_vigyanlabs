@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>nth Largest Element in Array</title>
+    <script>
+      function nthLargestElement(array, n) {
+        if (n > array.length) {
+          return null;
+        }
+
+        array.sort((a, b) => b - a);
+
+        return array[n - 1];
+      }
+
+      function findNthLargest() {
+         const array= document.getElementById('array1').value.split(',').map(value => value.trim());
+         
+        const n = 3;
+   
+        const nthLargest = nthLargestElement(array, n);
+
+        console.log(`The ${n}th largest element in [${array}] is ${nthLargest}.`);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Find nth Largest Element in Array</h1>
+ <label for="array1">Enter the first array:</label>
+      <input type="text" id="array1" name="array1" required><br></br>
+    <button type="button" onclick="findNthLargest()">Find nth Largest</button>
+  </body>
+</html>

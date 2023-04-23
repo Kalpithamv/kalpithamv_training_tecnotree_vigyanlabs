@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Merge Sort</title>
+	<script type="text/javascript">
+		function merge(left, right) {
+			var result = [];
+			while (left.length && right.length) {
+				if (left[0] <= right[0]) {
+					result.push(left.shift());
+				} else {
+					result.push(right.shift());
+				}
+			}
+			while (left.length) {
+				result.push(left.shift());
+			}
+			while (right.length) {
+				result.push(right.shift());
+			}
+			return result;
+		}
+
+		function mergeSort(arr) {
+			if (arr.length === 1) {
+				return arr;
+			}
+			var mid = Math.floor(arr.length / 2);
+			var left = arr.slice(0, mid);
+			var right = arr.slice(mid);
+			return merge(mergeSort(left), mergeSort(right));
+		}
+
+		function sortArray() {
+			var numbers = document.getElementById("numbers").value;
+			var arr = numbers.split(",").map(Number);
+			var sortedArr = mergeSort(arr);
+			document.getElementById("result").innerHTML = "The sorted array is [" + sortedArr.join(", ") + "]";
+		}
+	</script>
+</head>
+<body>
+	<h1>Merge Sort</h1>
+	<p>Enter a list of numbers:</p>
+	<input type="text" id="numbers">
+	<button onclick="sortArray()">Sort Array</button>
+	<p id="result"></p>
+</body>
+</html>

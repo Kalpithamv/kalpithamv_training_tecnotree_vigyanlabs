@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ARRAY SUM</title>
+    <script>
+      function sumArray() {
+        const array = [1,2,3,4,5];
+        const sum = array.reduce((acc, curr) => acc + curr, 0);
+        alert(`The sum of [${array}] is ${sum}.`);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>ARRAY SUM</h1>
+    <button type="button" onclick="sumArray()">Sum of Array</button>
+  </body>
+</html>

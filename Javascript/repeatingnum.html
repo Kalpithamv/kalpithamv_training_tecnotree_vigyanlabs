@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find Non-Repeating Character</title>
+	<script type="text/javascript">
+		function findNonRepeatingCharacter(str) {
+			var charCount = {};
+			for (var i = 0; i < str.length; i++) {
+				if (charCount[str[i]] === undefined) {
+					charCount[str[i]] = 1;
+				} else {
+					charCount[str[i]]++;
+				}
+			}
+			for (var j = 0; j < str.length; j++) {
+				if (charCount[str[j]] === 1) {
+					return str[j];
+				}
+			}
+			return null;
+		}
+
+		function getNonRepeatingCharacter() {
+			var input = document.getElementById("input").value;
+			var nonRepeatingCharacter = findNonRepeatingCharacter(input);
+			if (nonRepeatingCharacter === null) {
+				document.getElementById("result").innerHTML = "There are no non-repeating characters in the input string.";
+			} else {
+				document.getElementById("result").innerHTML = "The first non-repeating character is '" + nonRepeatingCharacter + "'.";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Find the Non-Repeating Character</h1>
+	<p>Enter a string:</p>
+	<input type="text" id="input">
+	<button onclick="getNonRepeatingCharacter()">Find Non-Repeating Character</button>
+	<p id="result"></p>
+</body>
+</html>
