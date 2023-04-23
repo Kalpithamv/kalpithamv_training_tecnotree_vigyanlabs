@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Claim Insurance Policy</title>
+</head><style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://www.jsblbank.com/blogsjsbl/financial/Encyc/2020/4/3/2_11_55_24_Insurance_1_H@@IGHT_600_W@@IDTH_800.gif');
+      background-size: cover;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    label {
+      display: block;
+      margin-top: 20px;
+    }
+    
+    input {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    button {
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    
+    button:hover {
+      background-color: #3e8e41;
+    }
+    
+</style>
+<body>
+
+  <h1>Claim Insurance Policy</h1>
+  <form method="post" action="process_claim.php">
+    <label for="policy_number">Policy Number:</label>
+    <input type="text" id="policy_number" name="policy_number" required><br><br>
+
+    <label for="claim_amount">Claim Amount:</label>
+    <input type="number" id="claim_amount" name="claim_amount" required><br><br>
+
+    <label for="claim_date">Claim Date:</label>
+    <input type="date" id="claim_date" name="claim_date" required><br><br>
+
+    <label for="claim_reason">Claim Reason:</label>
+    <textarea id="claim_reason" name="claim_reason" required></textarea><br><br>
+
+    <input type="submit" value="Submit Claim">
+  </form>
+
+  <script>
+    const claimForm = document.querySelector('form');
+
+claimForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const policyNumber = claimForm.elements['policy_number'].value;
+  const claimAmount = claimForm.elements['claim_amount'].value;
+  const claimDate = claimForm.elements['claim_date'].value;
+  const claimReason = claimForm.elements['claim_reason'].value;
+
+  // Perform validation on the form inputs
+  if (!policyNumber || !claimAmount || !claimDate || !claimReason) {
+    alert('Please fill in all fields');
+    return;
+  }
+  if (isNaN(claimAmount) || claimAmount <= 0) {
+    alert('Claim amount must be a positive number');
+    return;
+  }
+
+  // Send the form data to the server using an AJAX request
+  const xhr = new XMLHttpRequest();
+  const url = 'process_claim.php';
+  const data = new FormData();
+  data.append('policy_number', policyNumber);
+  data.append('claim_amount', claimAmount);
+  data.append('claim_date', claimDate);
+  data.append('claim_reason', claimReason);
+  xhr.open('POST', url);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      alert(' Error in Claim ');
+      // Clear the form inputs
+      claimForm.reset();
+    } else {
+      alert('Claim submitted successfully');
+    }
+  };
+  xhr.send(data);
+});
+
+// Server-side script to process the claim form submission
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'allisewell@18',
+  database: 'insurance'
+});
+
+connection.connect();
+
+app.post('/process_claim', function(req, res) {
+  const policyNumber = req.body.policy_number;
+  const claimAmount = req.body.claim_amount;
+  const claimDate = req.body.claim_date;
+  const claimReason = req.body.claim_reason;
+
+  // Insert the claim record into the database
+  const query = 'INSERT INTO claims (policy_number, claim_amount, claim_date, claim_reason) VALUES (?, ?, ?, ?)';
+  const values = [policyNumber, claimAmount, claimDate, claimReason];
+  connection.query(query, values, function(error, results, fields) {
+    if (error) {
+      console.error(error);
+      res.status(500).send('Error submitting claim');
+    } else {
+      res.send('Claim submitted successfully');
+    }
+  });
+});
+
+connection.end();
+
+  </script>
+</body>
+</html>

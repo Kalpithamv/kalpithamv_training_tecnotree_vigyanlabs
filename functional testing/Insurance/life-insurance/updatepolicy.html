@@ -1,0 +1,70 @@
+<center>
+<script>
+  function submitHandler() {
+    // code to handle form submission
+    alert("Policy updated successfully!");
+  }
+  </script>
+  
+  <h2>Update Insurance Policy</h2>
+  <style>
+    /* Style the form inputs */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://www.jsblbank.com/blogsjsbl/financial/Encyc/2020/4/3/2_11_55_24_Insurance_1_H@@IGHT_600_W@@IDTH_800.gif');
+      background-size: cover;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+  
+    /* Style the submit button */
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  
+    /* Style the policy details */
+    #policy-details {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+  
+  <body>
+    <form id="policy-form" onsubmit="submitHandler()">
+      <label for="policy-number">Policy Number:</label>
+      <input type="text" id="policy-number" name="policy-number">
+  
+      <label for="policy-holder">Policy Holder:</label>
+      <input type="text" id="policy-holder" name="policy-holder">
+  
+      <label for="coverage-amount">Coverage Amount:</label>
+      <input type="text" id="coverage-amount" name="coverage-amount">
+  
+      <button type="submit">Update Policy</button>
+    </form>
+  </body>
+</center>
+  

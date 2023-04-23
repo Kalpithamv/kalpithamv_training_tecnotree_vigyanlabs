@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Management System</title>
+</head>
+<body>
+	<h1>Student Management System</h1>
+	<form>
+		<label for="student-name">Name:</label>
+		<input type="text" id="student-name" name="student-name" required>
+		<br>
+		<label for="student-id">Student ID:</label>
+		<input type="text" id="student-id" name="student-id" required>
+		<br>
+		<label for="course">Course:</label>
+		<select id="course" name="course">
+			<option value="Math">Math</option>
+			<option value="Science">Science</option>
+			<option value="History">History</option>
+			<option value="English">English</option>
+		</select>
+		<br>
+        <label for="grade">Grade:</label>
+		<select id="grade" name="grade">
+			<option value="Distinction">Above 7.5cgpa</option>
+			<option value="First Class">Above 6.5cgpa</option>
+			<option value="Second Class">Above 5.0cgpa</option>
+			<option value="Fail">Below 5.0cgpa</option>
+		</select>
+        <br>
+        <label for="attendence">Attendence:</label>
+		<input type="text" id="attendence" name="attendence" required>
+        <br>
+		<input type="submit" value="Enroll">
+        <button id="delete-all-button">Delete All</button>
+
+	</form>
+    
+	<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://blog.advids.co/wp-content/uploads//2017/03/ezgif.com-resize-1.gif');
+            background-size: cover;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"], select {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        
+        table {
+            margin: auto;
+            width: 80%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        #delete-all {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        #delete-all:hover {
+            background-color: #d32f2f;
+        }
+        
+          
+        
+    </style>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Student ID</th>
+				<th>Course</th>
+				<th>Grade</th>
+				<th>Attendance</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- Code to display student information goes here -->
+            <script>
+                const form = document.querySelector('form');
+const nameInput = document.querySelector('#student-name');
+const idInput = document.querySelector('#student-id');
+const courseInput = document.querySelector('#course');
+const gradeInput = document.querySelector('#grade');
+const attendenceInput = document.querySelector('#attendence');
+const tableBody = document.querySelector('tbody');
+const deleteAllButton = document.querySelector('#delete-all-button');
+
+form.addEventListener('submit', (event) => {
+	event.preventDefault();
+	const name = nameInput.value;
+	const id = idInput.value;
+	const course = courseInput.value;
+    const grade=gradeInput.value;
+    const attendence=attendenceInput.value;
+	// Code to handle enrollment process goes here
+	addStudentToTable(name, id, course,grade,attendence);
+	nameInput.value = '';
+	idInput.value = '';
+	courseInput.value = '';
+    gradeInput.value='';
+    attendenceInput.value='';
+});
+deleteAllButton.addEventListener('click', () => {
+    tableBody.innerHTML = '';
+});
+
+function addStudentToTable(name, id, course,grade,attendence) {
+	const row = document.createElement('tr');
+	const nameCell = document.createElement('td');
+	const idCell = document.createElement('td');
+	const courseCell = document.createElement('td');
+	const gradeCell = document.createElement('td');
+	const attendanceCell = document.createElement('td');
+	nameCell.textContent = name;
+	idCell.textContent = id;
+	courseCell.textContent = course;
+    gradeCell.textContent = grade;
+	attendanceCell.textContent = attendence;
+	row.appendChild(nameCell);
+	row.appendChild(idCell);
+	row.appendChild(courseCell);
+	row.appendChild(gradeCell);
+	row.appendChild(attendanceCell);
+	tableBody.appendChild(row);
+}
+
+</script>          
+		</tbody>
+	</table>
+</body>
+</html>

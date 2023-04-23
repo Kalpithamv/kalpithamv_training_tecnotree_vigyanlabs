@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    display: grid;
+    gap: 1rem;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  form label,
+  form input {
+    width: 100%;
+  }
+  
+  button[type="submit"] {
+    margin-top: 1rem;
+  }
+  
+  #policy-list,
+  #policy-details,
+  #claim-policy,
+  #change-policy {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #policy-details-container {
+    white-space: pre-line;
+  }
+  

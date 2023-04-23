@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Insurance Management System</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h1>Insurance Management System</h1>
+  <div id="policy-form">
+    <h2>Add Policy</h2>
+    <form id="add-policy-form">
+      <label for="policy-number">Policy Number:</label>
+      <input type="text" id="policy-number" required>
+      <label for="policy-type">Policy Type:</label>
+      <input type="text" id="policy-type" required>
+      <label for="policy-holder">Policy Holder:</label>
+      <input type="text" id="policy-holder" required>
+      <label for="policy-amount">Policy Amount:</label>
+      <input type="number" id="policy-amount" required>
+      <button type="submit">Add Policy</button>
+    </form>
+  </div>
+
+  <div id="policy-list">
+    <h2>Policy List</h2>
+    <ul id="policy-list-container"></ul>
+  </div>
+
+  <div id="policy-details">
+    <h2>Policy Details</h2>
+    <p id="policy-details-container"></p>
+  </div>
+
+  <div id="claim-policy">
+    <h2>Claim Policy</h2>
+    <form id="claim-policy-form">
+      <label for="policy-number-claim">Policy Number:</label>
+      <input type="text" id="policy-number-claim" required>
+      <button type="submit">Claim Policy</button>
+    </form>
+  </div>
+
+  <div id="change-policy">
+    <h2>Change Policy</h2>
+    <form id="change-policy-form">
+      <label for="policy-number-change">Policy Number:</label>
+      <input type="text" id="policy-number-change" required>
+      <label for="new-policy-amount">New Policy Amount:</label>
+      <input type="number" id="new-policy-amount" required>
+      <button type="submit">Change Policy</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
